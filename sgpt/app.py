@@ -143,6 +143,31 @@ def main(
         callback=SystemRole.list,
         rich_help_panel="Role Options",
     ),
+    assistant: str = typer.Option(
+        None,
+        help="System assistant for GPT model.",
+        rich_help_panel="Assistant Options",
+    ),
+    create_assistant: str = typer.Option(
+        None,
+        help="Create assistant.",
+        callback=SystemAssistant.create,
+        rich_help_panel="Assistant Options",
+    ),
+    show_assistant: str = typer.Option(
+        None,
+        help="Show assistant.",
+        callback=SystemAssistant.show,
+        rich_help_panel="Assistant Options",
+    ),
+    list_assistants: bool = typer.Option(
+        False,
+        "--list-assistants",
+        "-lr",
+        help="List assistants.",
+        callback=SystemAssistant.list,
+        rich_help_panel="Assistant Options",
+    ),
     install_integration: bool = typer.Option(
         False,
         help="Install shell integration (ZSH and Bash only)",
